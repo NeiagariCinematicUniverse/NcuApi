@@ -1,0 +1,14 @@
+# This is where the markdown files will be located
+main_pages
+side_panels
+
+# Rails files that we do not want in the github repo
+log
+bin
+tmp
+
+# The key for uploading files
+.key.enc
+.iv
+.key
+encrypt.rb
