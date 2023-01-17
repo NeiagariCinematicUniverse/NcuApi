@@ -1,6 +1,12 @@
 class SidePanelController < ApplicationController
     def side
-        dataStream = File.open("./side_panels/" + params[:id] + ".md")
-        @pageContent = dataStream.read()
+        filePath = "./side_panels/" + params[:id] + ".md"
+
+        if File.exists?(filePath) then
+            dataStream = File.open(filePath)
+            @pageContent = dataStream.read()
+        else
+            return head 204
+        end
     end
 end

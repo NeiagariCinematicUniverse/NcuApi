@@ -17,7 +17,13 @@ class MainPagesController < ApplicationController
   end
   
   def page
-    dataStream = File.open("./main_pages/" + params[:id] + ".md")
-    @pageContent = dataStream.read()
+    filePath = "./main_pages/" + params[:id] + ".md"
+
+    if File.exists?(filePath) then
+      dataStream = File.open(filePath)
+      @pageContent = dataStream.read()
+    else
+      return head 204
+    end
   end
 end
